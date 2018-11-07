@@ -11,7 +11,7 @@ int main(int argc, char** argv) {
 	unsigned char *binStr{ nullptr };
 	unsigned int strLength{ static_cast<unsigned int>(strlen(argv[1])) };
 	unsigned int binStrLength{ strLength * 8 };
-	binStr = new unsigned char[binStrLength + 1]; // Labas -> 01001100 01100001 01100010 01100001 01110011\0
+	binStr = new unsigned char[binStrLength + 1];
 	int index{ 0 };
 
 	_asm {
@@ -26,10 +26,10 @@ int main(int argc, char** argv) {
 		mov eax, str
 		mov ecx, [strLength]
 
-		mov esi, eax			// rodo i str pradzia
-		add eax, ecx			// sudeda str pradzia su ilgiu, kad butu gauta pabaiga
-		mov edi, eax	 	    // rodo i str pabaiga
-		lea eax, binStr			// eax dabar rodo i binStr pradzia
+		mov esi, eax
+		add eax, ecx			
+		mov edi, eax	 	    
+		lea eax, binStr			
 		
 		for_loop:
 
